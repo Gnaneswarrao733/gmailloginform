@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail Login Form</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .box {
+            height: 50vh;
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form {
+            width: 400px;
+            min-height: 300px;
+            padding: 32px;
+            border-radius: 6px;
+            box-shadow: 5px 5px 20px black;
+        }
+
+        .form-title {
+            font-weight: 500;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-control {
+            width: 100%;
+            background: none;
+            border: 1px solid #a1a1a1;
+            outline: none;
+            padding: 16px;
+            border-radius: 3px;
+            z-index: 1;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-label {
+            position: absolute;
+            left: 13px;
+            top: 13px;
+            color: #a1a1a1;
+            background-color: white;
+            padding: 0 6px;
+            font-size: 14px;
+            transition: top 0.3s ease, font-size 0.3s ease, color 0.3s ease;
+        }
+
+        .form-control:focus + .form-label,
+        .form-control:not(:focus):valid + .form-label {
+            top: -10px;
+            z-index: 10;
+            color: #1b66c9;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .form-button {
+            padding: 12px 32px;
+            border: none;
+            background-color: #1b66c9;
+            color: #fff;
+            border-radius: 3px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .form-button:hover {
+            background-color: #144887;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <form action="#" class="form">
+            <h1 class="form-title">Sign In</h1>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="email_or_phone" id="email_or_phone" required>
+                <label for="email_or_phone" class="form-label">Email or phone</label>
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" id="password" required>
+                <label for="password" class="form-label">Enter Your Password</label>
+            </div>
+
+            <div class="bottom-box">
+                <button type="button" class="form-button" id="submitBtn">Next</button>
+            </div>
+        </form>
+    </div>
+
+    <table border="1">
+        <tr>
+            <th>Email or phone</th>
+            <th>Enter Your Password</th>
+        </tr>
+    </table>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            addRow();
+        });
+
+        function addRow() {
+            var emailOrPhone = document.getElementById('email_or_phone').value;
+            var enterYourPassword = document.getElementById('password').value;
+
+            var table = document.getElementsByTagName('table')[0];
+            var newRow = table.insertRow(1);
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+
+            cell1.innerHTML = emailOrPhone;
+            cell2.innerHTML = enterYourPassword;
+        }
+           
+    </script>
+
+</body>
+</html>
